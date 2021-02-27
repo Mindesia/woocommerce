@@ -1,0 +1,35 @@
+{
+  "name": "mindesia/woocommerce",
+  "type": "library",
+  "description": "WordPress & Timber Woocommerce config",
+  "homepage": "https://github.com/Mindesia/woocommerce",
+  "license": "MIT",
+  "keywords": ["wordpress", "bedrock", "timber", "acf", "woocommerce"],
+  "authors": [
+    {
+      "name": "Romain PIOT",
+      "email": "romainpiot.pro@gmail.com",
+      "homepage": "https://github.com/rompiot",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": ">=7.3",
+    "cocur/slugify": "^4.0",
+    "timber/timber": "^1.18"
+  },
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://wpackagist.org"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Mindesia\\": "src/"
+    },
+    "classmap": [
+      "src/"
+    ]
+  }
+}

@@ -1,10 +1,16 @@
 {
   "name": "mindesia/woocommerce",
   "type": "library",
-  "description": "WordPress & Timber Woocommerce config",
+  "description": "WordPress & Timber & Woocommerce config",
   "homepage": "https://github.com/Mindesia/woocommerce",
   "license": "MIT",
-  "keywords": ["wordpress", "bedrock", "timber", "acf", "woocommerce"],
+  "keywords": [
+    "wordpress",
+    "bedrock",
+    "timber",
+    "acf",
+    "woocommerce"
+  ],
   "authors": [
     {
       "name": "Romain PIOT",
@@ -16,7 +22,8 @@
   "require": {
     "php": ">=7.3",
     "cocur/slugify": "^4.0",
-    "timber/timber": "^1.18"
+    "timber/timber": "^1.18",
+    "wpackagist-plugin/woocommerce": "^5.0"
   },
   "repositories": [
     {
@@ -26,10 +33,21 @@
   ],
   "autoload": {
     "psr-4": {
-      "Mindesia\\": "src/"
+      "Mindesia\\Woocommerce": "src/"
     },
     "classmap": [
       "src/"
     ]
+  },
+  "extra": {
+    "installer-paths": {
+      "web/app/mu-plugins/{$name}/": [
+        "type:wordpress-muplugin"
+      ],
+      "web/app/plugins/{$name}/": [
+        "type:wordpress-plugin"
+      ]
+    },
+    "wordpress-install-dir": "web/wp"
   }
 }

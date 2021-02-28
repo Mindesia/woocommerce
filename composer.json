@@ -33,7 +33,7 @@
   ],
   "autoload": {
     "psr-4": {
-      "Mindesia\\Woocommerce": "src/"
+      "Mindesia\\Woocommerce\\": "src/"
     },
     "classmap": [
       "src/"

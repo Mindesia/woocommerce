@@ -26,7 +26,10 @@ class Woocommerce
             remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40);
             remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_price');
 
-            remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20 );
+            remove_action('woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20);
+
+            add_filter('woocommerce_dropdown_variation_attribute_options_args', [$this, 'remove_first_option_dropdown_attributes'], 10);
+            remove_action('woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20);
         }
     }
 
@@ -42,5 +45,18 @@ class Woocommerce
     public function add_woocommerce_support()
     {
         add_theme_support('woocommerce');
+    }
+
+
+    function remove_first_option_dropdown_attributes($args)
+    {
+        $args['show_option_none'] = '';
+        return $args;
+    }
+
+    function translate_reply($translated)
+    {
+        $translated = str_ireplace('Quantity', 'New Label', $translated);
+        return $translated;
     }
 }

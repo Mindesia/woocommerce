@@ -20,6 +20,11 @@ class Product
         $this->product = wc_get_product($post);
     }
 
+    public function id()
+    {
+        return absint($this->product->get_id());
+    }
+
     public function price_base()
     {
         return $this->product->get_regular_price();

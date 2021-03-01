@@ -91,4 +91,24 @@ class Product
     {
         return $this->product->get_title();
     }
+
+    /**
+     * Find related product
+     *
+     * @param integer $limit
+     * @return array
+     */
+    public function find_related_products(int $limit = 5): array
+    {
+        $related_ids = wc_get_related_products($this->id(), $limit);
+        $related_posts =  Timber::get_posts($related_ids);
+
+        $related_products =  [];
+
+        foreach ($related_posts as $related_post) {
+            array_push($related_products, new Product($related_post));
+        }
+
+        return $related_products;
+    }
 }

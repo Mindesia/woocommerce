@@ -12,12 +12,67 @@ class Product
 {
     private $product;
 
+    public $name;
+    public $slug;
+    public $date_created;
+    public $date_modified;
+    public $status;
+    public $featured;
+    public $catalog_visibility;
+    public $description;
+    public $short_description;
+    public $sku;
+    public $price;
+    public $regular_price;
+    public $sale_price;
+    public $date_on_sale_from;
+    public $date_on_sale_to;
+    public $total_sales;
+    public $tax_status;
+    public $tax_class;
+    public $manage_stock;
+    public $stock_quantity;
+    public $stock_status;
+    public $backorders;
+    public $low_stock_amount;
+    public $sold_individually;
+    public $weight;
+    public $length;
+    public $width;
+    public $height;
+    public $upsell_ids;
+    public $cross_sell_ids;
+    public $parent_id;
+    public $reviews_allowed;
+    public $purchase_note;
+    public $attributes;
+    public $default_attributes;
+    public $menu_order;
+    public $post_password;
+    public $virtual;
+    public $downloadable;
+    public $category_ids;
+    public $tag_ids;
+    public $shipping_class_id;
+    public $downloads;
+    public $image_id;
+    public $gallery_image_ids;
+    public $download_limit;
+    public $download_expiry;
+    public $rating_counts;
+    public $average_rating;
+    public $review_count;
+
     public function __construct($post = null)
     {
         if ($post == null) {
             $post = Timber::get_post();
         }
         $this->product = wc_get_product($post);
+
+        foreach ($this->product->get_data() as $key => $value) {
+            $this->$key = $value;
+        }
     }
 
     public function id()

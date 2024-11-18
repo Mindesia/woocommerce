@@ -11,7 +11,6 @@ use WC_Product_Variable;
 class Product
 {
     private $product;
-
     public $name;
     public $slug;
     public $date_created;

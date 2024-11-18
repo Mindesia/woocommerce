@@ -22,8 +22,7 @@
   "require": {
     "php": ">=7.3",
     "cocur/slugify": "^4.0",
-    "timber/timber": "^1.18",
-    "wpackagist-plugin/woocommerce": "^7.0"
+    "timber/timber": "^1.18"
   },
   "repositories": [
     {
@@ -38,16 +37,5 @@
     "classmap": [
       "src/"
     ]
-  },
-  "extra": {
-    "installer-paths": {
-      "web/app/mu-plugins/{$name}/": [
-        "type:wordpress-muplugin"
-      ],
-      "web/app/plugins/{$name}/": [
-        "type:wordpress-plugin"
-      ]
-    },
-    "wordpress-install-dir": "web/wp"
   }
 }
